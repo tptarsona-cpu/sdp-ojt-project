@@ -2,6 +2,11 @@
 session_start();
 
 // -------- CONFIG: update these to match your DB ----------
+// Set $demo_mode = true to run without a database (handy for local testing).
+// Demo credentials: email = test@example.com, password = password
+$demo_mode = true; // set to false when you want to use a real DB
+$demo_email = 'test@example.com';
+$demo_password = 'password';
 $db_host = '127.0.0.1';
 $db_name = 'my_app_db';
 $db_user = 'db_user';
@@ -115,6 +120,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 
     <p style="max-width:360px;margin:24px auto;font-size:0.9em;color:#666;">Need an account? Create users directly in the database or add a registration form.</p>
+
+    <?php if (!empty($demo_mode)): ?>
+        <div style="max-width:360px;margin:12px auto;padding:10px;background:#eef6ff;border:1px solid #ccdefa;border-radius:4px;">
+            <strong>Demo mode:</strong> Use <code>test@example.com</code> / <code>password</code> to sign in (no DB required).
+        </div>
+    <?php endif; ?>
 
     <hr style="max-width:360px;margin:24px auto;">
 
