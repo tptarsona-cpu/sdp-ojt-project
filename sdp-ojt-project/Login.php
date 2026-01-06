@@ -7,7 +7,7 @@ $demo_email = 'test@example.com';
 $demo_password = 'password';
 
 // Logout
-if (isset($_GET['logout'])) {
+if if(isset($_GET['logout'])) {
     session_destroy();
     header("Location: Login.php");
     exit();
