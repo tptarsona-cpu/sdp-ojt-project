@@ -71,13 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Generic message (do not reveal whether email exists)
                 $errors[] = 'Invalid email or password.';
             }
-        } catch (PDOException $e) {
-            // Database-specific error: show friendly guidance for XAMPP users
-            $errors[] = 'Database connection failed. Ensure XAMPP MySQL is running and the database "' . htmlspecialchars($db_name) . '" exists.';
-            // If you want debug details locally, set $debug = true above; we add optional debug output here
-            if (!empty($debug)) {
-                $errors[] = 'Debug: ' . htmlspecialchars($e->getMessage());
-            }
         } catch (Exception $e) {
             // In production, log the error instead of echoing
             $errors[] = 'Login failed: ' . htmlspecialchars($e->getMessage());
