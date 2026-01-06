@@ -35,8 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login</title>
-<link rel="stylesheet" href="design_files/Design.css">
+<link rel="stylesheet" href="../design_files/Design.css">
 </head>
 <body>
 <div class="login-wrapper">
@@ -51,12 +52,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <h2>Welcome back</h2>
       <p class="subtitle">Sign in to your account</p>
     </div>
-    <?php if ($error): ?><p class="error"><?php echo $error; ?></p><?php endif; ?>
-    <form method="POST" class="login-form">
+    <?php if ($error): ?><p id="error" class="error" role="alert" aria-live="polite"><?php echo htmlspecialchars($error, ENT_QUOTES); ?></p><?php endif; ?>
+    <form method="POST" class="login-form" autocomplete="on" novalidate>
       <label class="input-label" for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Email" required>
+      <input type="email" id="email" name="email" placeholder="Email" autocomplete="email" required autofocus>
       <label class="input-label" for="password">Password</label>
-      <input type="password" id="password" name="password" placeholder="Password" required>
+      <input type="password" id="password" name="password" placeholder="Password" autocomplete="current-password" required>
       <button type="submit" class="btn">Login</button>
     </form>
     <p class="demo-note"><small>Demo: test@example.com / password</small></p>
