@@ -6,7 +6,7 @@ $demo_mode = true;
 $demo_email = 'test@example.com';
 $demo_password = 'password';
 
-// Logout handling
+// Logout handling changes
 if (isset($_GET['logout'])) {
     session_destroy();
     header("Location: Login.php");
